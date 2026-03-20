@@ -1,0 +1,131 @@
+{
+  "project_name": "Anniversary Gift Website",
+  "app_type": "landing_page",
+  "theme": "light",
+  "design_philosophy": {
+    "core_concept": "Digital Love Letter",
+    "emotional_tone": "Intimate, Playful, Sincere, Romantic",
+    "visual_style": "Soft, Airy, Glassmorphic, Cute",
+    "rules": [
+      "Always use rounded corners (rounded-2xl or rounded-3xl)",
+      "No sharp edges",
+      "Use ample whitespace (padding-8, padding-12)",
+      "Animations should be slow and floaty, not fast or jerky",
+      "Text should feel like a personal note"
+    ]
+  },
+  "colors": {
+    "palette": {
+      "background": "#FFF0F5",
+      "surface": "#FFFFFF",
+      "primary": "#FF69B4",
+      "secondary": "#E6E6FA",
+      "text_primary": "#333333",
+      "text_secondary": "#666666",
+      "accent": "#FF1493"
+    },
+    "tailwind_config": {
+      "colors": {
+        "romantic-bg": "#FFF0F5",
+        "romantic-pink": "#FFB7C5",
+        "romantic-purple": "#E6E6FA",
+        "romantic-dark": "#2D2D2D",
+        "romantic-accent": "#FF69B4"
+      }
+    }
+  },
+  "typography": {
+    "fonts": {
+      "heading": "'Great Vibes', cursive",
+      "body": "'Nunito', sans-serif"
+    },
+    "imports": [
+      "@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Nunito:wght@400;600;700&display=swap');"
+    ],
+    "usage": {
+      "h1": "font-heading text-6xl md:text-8xl text-romantic-accent drop-shadow-sm",
+      "h2": "font-heading text-4xl md:text-5xl text-romantic-dark",
+      "p": "font-body text-lg text-gray-700 leading-relaxed",
+      "date": "font-body text-sm font-bold tracking-widest uppercase text-romantic-pink"
+    }
+  },
+  "layout_strategy": {
+    "container": "max-w-4xl mx-auto px-4",
+    "spacing": "space-y-24 md:space-y-32",
+    "sections": [
+      {
+        "name": "Hero",
+        "style": "h-screen flex flex-col justify-center items-center text-center relative overflow-hidden"
+      },
+      {
+        "name": "MonthCards",
+        "style": "flex flex-col gap-16 md:gap-24"
+      },
+      {
+        "name": "MusicPlayer",
+        "style": "fixed bottom-4 right-4 z-50 glass-panel p-4 rounded-full flex items-center gap-4 shadow-xl border border-white/40"
+      }
+    ]
+  },
+  "components": {
+    "MonthCard": {
+      "structure": "Glassmorphic card with photo on one side (or top) and text on the other. Alternating layout for desktop.",
+      "styling": "bg-white/60 backdrop-blur-md border border-white/50 shadow-lg rounded-3xl p-6 md:p-8 hover:scale-[1.02] transition-transform duration-500",
+      "image_style": "rounded-2xl shadow-md w-full h-64 md:h-80 object-cover"
+    },
+    "HeartBackground": {
+      "instruction": "Create a CSS animation of floating hearts rising from bottom to top with varying sizes and opacities."
+    },
+    "MusicPlayer": {
+      "instruction": "Simple play/pause button with a progress bar or just a spinning vinyl icon. Must auto-play if possible (browser permitting) or have a clear 'Play for Vibes' button."
+    }
+  },
+  "assets": {
+    "images": [
+      {
+        "id": "month_1",
+        "url": "https://images.unsplash.com/photo-1771813730262-1488210fd158?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2Mzl8MHwxfHNlYXJjaHwxfHxyb21hbnRpYyUyMGNvdXBsZSUyMHBsYXlmdWx8ZW58MHx8fHwxNzczOTg5NTQ4fDA&ixlib=rb-4.1.0&q=85",
+        "alt": "Month 1 Memory - Playful Outdoors"
+      },
+      {
+        "id": "month_2",
+        "url": "https://images.unsplash.com/photo-1766717419011-b068896f866c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2Mzl8MHwxfHNlYXJjaHw0fHxyb21hbnRpYyUyMGNvdXBsZSUyMHBsYXlmdWx8ZW58MHx8fHwxNzczOTg5NTQ4fDA&ixlib=rb-4.1.0&q=85",
+        "alt": "Month 2 Memory - Beach Day"
+      },
+      {
+        "id": "month_3",
+        "url": "https://images.pexels.com/photos/4873585/pexels-photo-4873585.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "alt": "Month 3 Memory - Sunset Field"
+      }
+    ],
+    "music": {
+      "track_name": "Iris - Goo Goo Dolls",
+      "youtube_id": "NdYWuo9OFAw",
+      "implementation_note": "Use react-player/youtube or a hidden iframe. Since autoplay is often blocked, provide a beautiful Play button in the center initially or in the corner."
+    }
+  },
+  "animations": {
+    "library": "framer-motion",
+    "effects": {
+      "fireworks": "Use canvas-confetti with heart shapes on load.",
+      "card_entry": "initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}",
+      "floating_hearts": "CSS keyframes for background hearts moving upwards."
+    }
+  },
+  "instructions_to_main_agent": [
+    "1. Install dependencies: `npm install framer-motion canvas-confetti react-player lucide-react`",
+    "2. Setup Tailwind config with the 'romantic' colors defined above.",
+    "3. Add the Google Fonts import to `index.css`.",
+    "4. Create `components/MonthCard.js`, `components/MusicPlayer.js`, `components/HeartBackground.js`.",
+    "5. Ensure the design is mobile-responsive. The cards should stack vertically on mobile.",
+    "6. The 'Firework' effect should trigger immediately when the page loads.",
+    "7. Music player should be unobtrusive but accessible.",
+    "8. Use specific heartfelt dummy text for the 3 months if not provided (e.g., 'The day we met...', 'Our first trip...', 'Getting closer...')."
+  ],
+  "universal_guidelines": [
+    "Do not use generic gray borders. Use tinted borders (pink-200).",
+    "Avoid pure black (#000000). Use #2D2D2D or #333333.",
+    "Make buttons pill-shaped (rounded-full).",
+    "Add `data-testid` to all interactive elements."
+  ]
+}
